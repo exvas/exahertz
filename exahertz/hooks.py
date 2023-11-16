@@ -219,3 +219,29 @@ app_license = "mit"
 # auth_hooks = [
 #	"exahertz.auth.validate"
 # ]
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Customer-custom_customer_id",
+                    "Customer-custom_consumer_id",
+                    "Sales Invoice-custom_consumer_id",
+                    "Sales Invoice-custom_meter_reading_date",
+                    "Sales Invoice-custom_invoice_month_and_year",
+                    "Sales Invoice Item-custom_from",
+                    "Sales Invoice Item-custom_to_date",
+                    "Sales Invoice Item-custom_days",
+                    "Sales Invoice Item-custom_watts",
+                    "Customer-custom_account_no",
+                    "Customer-custom_meter_p69",
+                    "Sales Invoice-custom_account_no",
+                    "Sales Invoice-custom_meter_p69",
+                ]
+            ]
+        ]
+    }
+]
