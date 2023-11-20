@@ -242,7 +242,8 @@ fixtures = [
                     "Sales Invoice-custom_meter_p69",
                     "Sales Invoice-custom_print_currency",
                     "Sales Invoice-custom_print_exchange_rate",
-                    "Sales Invoice-custom_print_in_words"
+                    "Sales Invoice-custom_print_in_words",
+                    "Sales Invoice-custom_print_amount_usd"
                 ]
             ]
         ]
