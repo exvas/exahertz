@@ -237,7 +237,6 @@ fixtures = [
                     "Sales Invoice Item-custom_days",
                     "Sales Invoice Item-custom_watts",
                     "Customer-custom_account_no",
-                    "Customer-custom_meter_p69",
                     "Sales Invoice-custom_account_no",
                     "Sales Invoice-custom_meter_p69",
                     "Sales Invoice-custom_print_currency",
