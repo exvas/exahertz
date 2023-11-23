@@ -631,7 +631,7 @@
   "name": "Sales Invoice-custom_meter_p69",
   "no_copy": 0,
   "non_negative": 0,
-  "options": "Meter P69",
+  "options": "Meter Details",
   "permlevel": 0,
   "precision": "",
   "print_hide": 0,

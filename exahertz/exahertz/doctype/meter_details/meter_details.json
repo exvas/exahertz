@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:meter_id",
  "creation": "2023-11-22 09:59:55.835376",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -13,16 +14,18 @@
    "fieldname": "meter_id",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Meter ID"
+   "label": "Meter ID",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-22 10:00:18.991465",
+ "modified": "2023-11-23 14:27:50.213052",
  "modified_by": "Administrator",
  "module": "Exahertz",
  "name": "Meter Details",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
