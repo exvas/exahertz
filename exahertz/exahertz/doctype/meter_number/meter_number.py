@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class MeterP69(Document):
+class MeterNumber(Document):
 	pass

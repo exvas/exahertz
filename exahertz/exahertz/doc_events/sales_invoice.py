@@ -16,13 +16,17 @@ def get_print_tw(amount, curr):
 def get_meter_list(doctype, txt, searchfield, start, page_len, filters):
     query = ""
     if txt:
-        query += "AND meter_id LIKE '%{txt}%'".format(txt=txt)
+        query += "AND md.account_no LIKE '%{txt}%'".format(txt=txt)
     data = frappe.db.sql("""
-        SELECT meter_id
+        SELECT account_no
         FROM `tabMeter Details` md
-        INNER JOIN `tabMeter P69` mp
-        ON md.parent = mp.name
-        WHERE mp.customer_id = "{customer}"
+        INNER JOIN `tabMeter Number` mn
+        ON md.parent = mn.name
+        WHERE mn.customer_id = "{customer}"
         {query}
     """.format(customer=filters.get("customer"), query=query))
     return data
+
+@frappe.whitelist()
+def get_meter_number(doc_name):
+    return frappe.db.get_value("Meter Details", doc_name, "meter_id")
