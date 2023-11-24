@@ -18,10 +18,12 @@ frappe.ui.form.on('Sales Invoice', {
         })
     },
     customer:function(frm){
+        frm.set_value("custom_account_no", "")
+        frm.set_value("custom_meter_no", "")
         frm.trigger('get_meter_list');
     },
     get_meter_list:function(frm){
-        frm.set_query('custom_meter_p69', function(){
+        frm.set_query('custom_account_no', function(){
             if(frm.doc.customer){
                 return {
                     query: "exahertz.exahertz.doc_events.sales_invoice.get_meter_list",
@@ -31,5 +33,16 @@ frappe.ui.form.on('Sales Invoice', {
                 }
             }
         })
+    },
+    custom_account_no:function(frm){
+        if(frm.doc.custom_account_no){
+            frappe.xcall("exahertz.exahertz.doc_events.sales_invoice.get_meter_number", {"doc_name":frm.doc.custom_account_no}).then(data=>{
+                if(data){
+                    frm.set_value("custom_meter_no", data)
+                }else{
+                    frappe.msgprint("Meter number not found")
+                }
+            })
+        }
     }
 })

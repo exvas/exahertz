@@ -60,10 +60,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-22 10:19:43.791730",
+ "modified": "2023-11-24 22:05:21.511650",
  "modified_by": "Administrator",
  "module": "Exahertz",
- "name": "Meter P69",
+ "name": "Meter Number",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

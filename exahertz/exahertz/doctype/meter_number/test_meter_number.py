@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestMeterP69(FrappeTestCase):
+class TestMeterNumber(FrappeTestCase):
 	pass
