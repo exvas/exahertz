@@ -129,7 +129,11 @@ doctype_js = {"Sales Invoice" : "public/js/sales_invoice.js"}
 #		"on_trash": "method"
 #	}
 # }
-
+doc_events = {
+    "Meter Number":{
+        "on_trash": "exahertz.exahertz.doc_events.meter_data.delete_meter_data"
+    }
+}
 # Scheduled Tasks
 # ---------------
 
