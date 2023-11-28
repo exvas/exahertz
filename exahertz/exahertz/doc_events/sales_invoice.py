@@ -11,21 +11,15 @@ def get_print_er(from_cur, to_cur):
 def get_print_tw(amount, curr):
     return money_in_words(amount, curr)
 
-# @frappe.whitelist()
-# @frappe.validate_and_sanitize_search_inputs
-# def get_meter_list(doctype, txt, searchfield, start, page_len, filters):
-#     query = ""
-#     if txt:
-#         query += "AND account_no LIKE '%{txt}%'".format(txt=txt)
-#     data = frappe.db.sql("""
-#         SELECT name
-#         FROM `tabInvoice Meter Details`
-#         WHERE customer = "{customer}"
-#         {query}
-#     """.format(customer=filters.get("customer"), query=query))
-#     print(data)
-#     return data
+@frappe.whitelist()
+def get_meter_list(customer):
+    acc_list =  frappe.db.get_list("Meter Details", {"parent":customer}, ["account_no"], pluck="account_no", ignore_permissions=True)
+    acc = [""]
+    if acc_list:
+        return acc + acc_list
+    else:
+        return []
 
-# @frappe.whitelist()
-# def get_meter_number(doc_name):
-#     return frappe.db.get_value("Meter Details", doc_name, "meter_id")
+@frappe.whitelist()
+def get_meter_number(account_no):
+    return frappe.db.get_value("Meter Details", {"account_no": account_no}, "meter_id")

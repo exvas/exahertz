@@ -23,26 +23,26 @@ frappe.ui.form.on('Sales Invoice', {
         frm.trigger('get_meter_list');
     },
     get_meter_list:function(frm){
-        frm.set_query('custom_account_no', function(){
-            if(frm.doc.customer){
-                return {
-                    // query: "exahertz.exahertz.doc_events.sales_invoice.get_meter_list",
-                    filters: {
-                        customer: frm.doc.customer
-                    }
+        if(frm.doc.customer){
+            frappe.xcall("exahertz.exahertz.doc_events.sales_invoice.get_meter_list",{
+                customer: frm.doc.customer
+            }).then(data=>{
+                console.log(data)
+                if(data){
+                    frm.set_df_property("custom_account_no", "options", data);
                 }
-            }
-        })
+            })
+        }
+    },
+    custom_account_no:function(frm){
+        if(frm.doc.custom_account_no){
+            frappe.xcall("exahertz.exahertz.doc_events.sales_invoice.get_meter_number", {"account_no":frm.doc.custom_account_no}).then(data=>{
+                if(data){
+                    frm.set_value("custom_meter_no", data)
+                }else{
+                    frappe.msgprint("Meter number not found")
+                }
+            })
+        }
     }
-//     custom_account_no:function(frm){
-//         if(frm.doc.custom_account_no){
-//             frappe.xcall("exahertz.exahertz.doc_events.sales_invoice.get_meter_number", {"doc_name":frm.doc.custom_account_no}).then(data=>{
-//                 if(data){
-//                     frm.set_value("custom_meter_no", data)
-//                 }else{
-//                     frappe.msgprint("Meter number not found")
-//                 }
-//             })
-//         }
-//     }
 })
