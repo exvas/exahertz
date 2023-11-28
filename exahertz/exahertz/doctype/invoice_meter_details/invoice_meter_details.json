@@ -32,9 +32,10 @@
    "label": "Customer"
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 22:39:32.347368",
+ "modified": "2023-11-28 08:40:29.708728",
  "modified_by": "Administrator",
  "module": "Exahertz",
  "name": "Invoice Meter Details",
