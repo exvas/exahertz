@@ -5,6 +5,5 @@
 from frappe.model.document import Document
 
 
-class MeterNumber(Document):
-	def on_trash(self):
-		pass
+class InvoiceMeterDetails(Document):
+	pass
