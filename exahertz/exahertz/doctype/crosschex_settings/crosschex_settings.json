@@ -1,0 +1,203 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-04 11:58:46.293893",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_settings_tab",
+  "enable_realtime_sync",
+  "column_break_zugw",
+  "sync_frequency",
+  "column_break_mcan",
+  "sync_hours_back",
+  "section_break_rbzj",
+  "api_configurations",
+  "status_tab",
+  "section_break_status",
+  "connection_status",
+  "last_sync_time",
+  "last_sync_status",
+  "column_break_yteu",
+  "token",
+  "token_expires",
+  "last_token_generated",
+  "advanced_tab",
+  "section_break_advanced",
+  "timezone",
+  "date_format",
+  "column_break_advanced",
+  "log_retention_days",
+  "webhook_retry_attempts"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Settings"
+  },
+  {
+   "description": "Configure multiple CrossChex Cloud API connections for different regions (US, EU, etc.)",
+   "fieldname": "api_configurations",
+   "fieldtype": "Table",
+   "label": "API Configurations",
+   "options": "CrossChex API Configuration"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_realtime_sync",
+   "fieldtype": "Check",
+   "label": "Enable Realtime Sync"
+  },
+  {
+   "default": "15",
+   "fieldname": "sync_frequency",
+   "fieldtype": "Select",
+   "label": "Sync Frequency (minutes)",
+   "options": "5\n15\n30\n60"
+  },
+  {
+   "default": "24",
+   "fieldname": "sync_hours_back",
+   "fieldtype": "Int",
+   "label": "Sync Hours Back"
+  },
+  {
+   "fieldname": "status_tab",
+   "fieldtype": "Tab Break",
+   "label": "Status & Controls"
+  },
+  {
+   "fieldname": "section_break_status",
+   "fieldtype": "Section Break",
+   "label": "Current Status"
+  },
+  {
+   "default": "Not Tested",
+   "fieldname": "connection_status",
+   "fieldtype": "Select",
+   "label": "Connection Status",
+   "options": "Not Tested\nConnected\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sync_time",
+   "fieldtype": "Datetime",
+   "label": "Last Sync Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sync_status",
+   "fieldtype": "Small Text",
+   "label": "Last Sync Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yteu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "token",
+   "fieldtype": "Password",
+   "label": "Access Token",
+   "read_only": 1
+  },
+  {
+   "fieldname": "token_expires",
+   "fieldtype": "Datetime",
+   "label": "Token Expires",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_token_generated",
+   "fieldtype": "Datetime",
+   "label": "Last Token Generated",
+   "read_only": 1
+  },
+  {
+   "fieldname": "advanced_tab",
+   "fieldtype": "Tab Break",
+   "label": "Advanced Settings"
+  },
+  {
+   "fieldname": "section_break_advanced",
+   "fieldtype": "Section Break",
+   "label": "Regional Settings"
+  },
+  {
+   "default": "UTC",
+   "fieldname": "timezone",
+   "fieldtype": "Select",
+   "label": "Timezone",
+   "options": "UTC\nAsia/Dubai\nAmerica/New_York\nEurope/London\nAsia/Kolkata\nAsia/Singapore"
+  },
+  {
+   "default": "YYYY-MM-DD HH:mm:ss",
+   "fieldname": "date_format",
+   "fieldtype": "Data",
+   "label": "Date Format"
+  },
+  {
+   "fieldname": "column_break_advanced",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "30",
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Log Retention Days"
+  },
+  {
+   "default": "3",
+   "fieldname": "webhook_retry_attempts",
+   "fieldtype": "Int",
+   "label": "Webhook Retry Attempts"
+  },
+  {
+   "fieldname": "column_break_zugw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mcan",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_rbzj",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-01-25 21:12:41.687174",
+ "modified_by": "Administrator",
+ "module": "Exahertz",
+ "name": "Crosschex Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "HR Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "HR User"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

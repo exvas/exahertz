@@ -122,33 +122,28 @@ doctype_js = {"Sales Invoice" : "public/js/sales_invoice.js"}
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Employee Checkin": {
+		"after_insert": "exahertz.exahertz.overrides.employee_checkin.on_employee_checkin_submit"
+	}
+}
+
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"exahertz.tasks.all"
-#	],
-#	"daily": [
-#		"exahertz.tasks.daily"
-#	],
-#	"hourly": [
-#		"exahertz.tasks.hourly"
-#	],
-#	"weekly": [
-#		"exahertz.tasks.weekly"
-#	],
-#	"monthly": [
-#		"exahertz.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+	"cron": {
+		"*/15 * * * *": [
+			"exahertz.exahertz.doctype.crosschex_settings.crosschex_settings.scheduled_attendance_sync"
+		],
+		"45 23 * * *": [
+			"exahertz.exahertz.overrides.employee_checkin.daily_attendance_regularization_job"
+		]
+	},
+	"hourly": [
+		"exahertz.exahertz.doctype.crosschex_settings.crosschex_settings.check_and_refresh_token"
+	]
+}
 
 # Testing
 # -------
@@ -240,7 +235,8 @@ fixtures = [
                     "Sales Invoice-custom_print_currency",
                     "Sales Invoice-custom_print_exchange_rate",
                     "Sales Invoice-custom_print_in_words",
-                    "Sales Invoice-custom_print_amount_usd"
+                    "Sales Invoice-custom_print_amount_usd",
+                    "Employee Checkin-custom_crosschex_uuid"
                 ]
             ]
         ]
