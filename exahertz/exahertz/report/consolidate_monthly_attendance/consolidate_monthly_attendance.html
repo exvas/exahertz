@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consolidated Monthly Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .report-header {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: red;
+        }
+        .table-container {
+            width: 100%;
+            border-collapse: collapse;
+           
+        }
+        .table-container th, .table-container td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .table-container th {
+            background-color: goldenrod;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+   
+<br>
+    <div class="report-header">
+        Consolidated Monthly Attendance Report
+    </div>
+
+    <table class="table-container">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>PR</th>
+                <th>AB</th>
+                <th>HL</th>
+                <th>AL</th>
+                <th>SL</th>
+                <th>NP</th>
+                <th>EL</th>
+                <th>SD</th>
+                <th>ML</th>
+                <th>Study Leave</th>
+                <th>HDL</th>
+                <th>LOP</th>
+                <th>BH</th>
+                <th>OT</th>
+                <th>OT-2</th>
+                <th>UT</th>
+                <th>Total Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.employee }}</td>
+                <td>{{ row.employee_name }}</td>
+                <td>{{ row.department }}</td>
+                <td>{{ row.present }}</td>
+                <td>{{ row.off }}</td>
+                <td>{{ row.hollyday }}</td>
+                <td>{{ row.anual_leave }}</td>
+                <td>{{ row.sick_leave }}</td>
+                <td>{{ row.nopay_leave }}</td>
+                <td>{{ row.emergency_leave }}</td>
+                <td>{{ row.site_duty }}</td>
+                <td>{{ row.maternity_leave }}</td>
+                <td>{{ row.study_leave }}</td>
+                <td>{{ row.half_day_leave }}</td>
+                <td>{{ row.leave_with_out_pay }}</td>
+                <td>{{ row.bh }}</td>
+                <td>{{ row.ot }}</td>
+                <td>{{ row.ot_2 }}</td>
+                <td>{{ row.ut }}</td>
+                <td>{{ row.total_hr }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<br>
+<p><b style="color: navy;">PR - Present || AB - Absent ||  HL - Holiday || SL - Sick Leave ||  AL - Annual Leave || NP - No Pay Leave || EL - Emergency Leave || SD - Site Duty || Study Leave || ML - Maternity Leave || HDL - Half Day Leave || LOP - Leave Without Pay || 
+    BH - Base Hours || OT - Overtime || OT-2 - Overtime on Holidays || UT - Under Time </b></p>
+</body>
+</html>
