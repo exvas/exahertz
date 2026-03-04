@@ -137,7 +137,7 @@ scheduler_events = {
 			"exahertz.exahertz.doctype.crosschex_settings.crosschex_settings.scheduled_attendance_sync"
 		],
 		"45 23 * * *": [
-			"exahertz.exahertz.overrides.employee_checkin.daily_attendance_regularization_job"
+			"exahertz.exahertz.overrides.employee_checkin.daily_attendance_from_checkins"
 		]
 	},
 	"hourly": [

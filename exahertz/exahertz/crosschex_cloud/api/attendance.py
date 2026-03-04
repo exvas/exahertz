@@ -225,8 +225,8 @@ def create_attendance_log(args):
                 checkin_doc.time = checkin_time
                 checkin_doc.naming_series = 'CKIN/.YY./.MM./.#####'
 
-                # Always skip ERPNext auto attendance (handled by our custom workflow)
-                checkin_doc.skip_auto_attendance = 1
+                # Let HRMS auto attendance handle attendance creation from checkins
+                checkin_doc.skip_auto_attendance = 0
 
                 # Set CrossChex UUID if available
                 if i.get("uuid"):
