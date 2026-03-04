@@ -45,6 +45,12 @@ frappe.query_reports["Consolidate Monthly Report"] = {
 			$report_area.after(legend_html);
 		}
 	}, 500);
+
+	// Remove legend when navigating away
+	$(document).off("page-change.attendance_legend").on("page-change.attendance_legend", function() {
+		$("#attendance-legend").remove();
+		$(document).off("page-change.attendance_legend");
+	});
 }
 
 };
