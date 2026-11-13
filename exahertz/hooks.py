@@ -123,6 +123,9 @@ doctype_js = {"Sales Invoice" : "public/js/sales_invoice.js"}
 # Hook on document methods and events
 
 doc_events = {
+	"Sales Invoice": {
+		"validate": "exahertz.exahertz.doc_events.sales_invoice.set_print_amount"
+	},
 	"Employee Checkin": {
 		"after_insert": "exahertz.exahertz.overrides.employee_checkin.on_employee_checkin_submit"
 	}
