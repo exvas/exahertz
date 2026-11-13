@@ -15,12 +15,24 @@ frappe.ui.form.on('Sales Invoice', {
             frm.set_value("custom_print_exchange_rate", data)
         })
     },
-    validate:function(frm){
-        let total = frm.doc.rounded_total || frm.doc.grand_total
-        frm.set_value("custom_print_amount_usd", total * frm.doc.custom_print_exchange_rate)
-        frappe.xcall("exahertz.exahertz.doc_events.sales_invoice.get_print_tw", {"amount": total*frm.doc.custom_print_exchange_rate, curr: frm.doc.custom_print_currency}).then(data=>{
-            frm.set_value("custom_print_in_words", data)
-        })
+    // The saved values are set on the server (set_print_amount) after ERPNext
+    // has recalculated the totals. This only keeps the form preview in step.
+    disable_rounded_total: function(frm){
+        frm.trigger('set_print_amount');
+    },
+    custom_print_exchange_rate: function(frm){
+        frm.trigger('set_print_amount');
+    },
+    set_print_amount: function(frm){
+        if(frm.doc.docstatus != 0) return;
+        let total = (!cint(frm.doc.disable_rounded_total) && flt(frm.doc.rounded_total)) || flt(frm.doc.grand_total);
+        let amount = total * flt(frm.doc.custom_print_exchange_rate);
+        frm.set_value("custom_print_amount_usd", amount);
+        if(amount && frm.doc.custom_print_currency){
+            frappe.xcall("exahertz.exahertz.doc_events.sales_invoice.get_print_tw", {"amount": amount, curr: frm.doc.custom_print_currency}).then(data=>{
+                frm.set_value("custom_print_in_words", data);
+            });
+        }
     },
     customer:function(frm){
         frm.set_value("custom_account_no", "")
